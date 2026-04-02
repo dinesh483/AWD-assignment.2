@@ -111,7 +111,7 @@
       color: #777;
     }
 
-    /* Song Cards Grid */
+  
     .songs-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
@@ -207,7 +207,7 @@
       overflow-y: auto;
     }
 
-    /* Now Playing Box */
+   
     .now-playing-box {
       background: #16213e;
       border: 1px solid #2a2a4a;
@@ -267,7 +267,7 @@
       color: #aaa;
     }
 
-    /* Progress Bar */
+   
     .progress-wrap {
       background: #2a2a4a;
       border-radius: 99px;
@@ -292,7 +292,7 @@
       margin-bottom: 14px;
     }
 
-    /* Controls */
+    
     .controls {
       display: flex;
       justify-content: center;
@@ -326,7 +326,7 @@
       background: #c73652;
     }
 
-    /* Recently Played */
+   
     .recent-box {
       background: #16213e;
       border: 1px solid #2a2a4a;
@@ -372,7 +372,7 @@
       color: #888;
     }
 
-    /* Playlist Info */
+  
     .playlist-info {
       background: #16213e;
       border: 1px solid #2a2a4a;
@@ -387,7 +387,7 @@
       color: #eee;
     }
 
-    /* Scrollbar */
+    
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
@@ -404,10 +404,10 @@
 
 <div class="container">
 
-  <!-- LEFT: Song List -->
+ 
   <div class="left-panel">
 
-    <!-- Search and Filters -->
+  
     <div class="search-row">
       <input type="text" id="searchInput" placeholder="🔍 Search songs, artist, album..." oninput="renderSongs()" />
       <select id="genreSelect" onchange="renderSongs()">
@@ -418,7 +418,7 @@
       </select>
     </div>
 
-    <!-- Sort Buttons -->
+    
     <div class="sort-row">
       <label>Sort by:</label>
       <button class="sort-btn active" onclick="setSort('title', this)">Title</button>
@@ -430,14 +430,14 @@
 
     <span class="song-count-info" id="songCount"></span>
 
-    <!-- Song Cards -->
+    
     <div class="songs-grid" id="songsGrid"></div>
   </div>
 
-  <!-- RIGHT: Player Panel -->
+ 
   <div class="right-panel">
 
-    <!-- Now Playing -->
+   
     <div class="now-playing-box">
       <h3>▶ Now Playing</h3>
       <div id="npEmoji">🎵</div>
@@ -462,13 +462,13 @@
       </div>
     </div>
 
-    <!-- Recently Played -->
+  
     <div class="recent-box">
       <h3>🕐 Recently Played</h3>
       <div id="recentList"></div>
     </div>
 
-    <!-- Playlist Info -->
+    
     <div class="playlist-info" id="playlistInfo"></div>
 
   </div>
@@ -496,7 +496,7 @@ const myPlaylist = {
     createdDate: new Date("2025-01-01"),
     songCount: songData.length
 };
-// Recently played tuple - fixed size of 5
+
 let recentlyPlayed = [1, 3, 7, 10, 12];
 let currentSongId = null;
 let isPlaying = false;
@@ -545,7 +545,7 @@ function playSong(id) {
     currentSongId = id;
     isPlaying = true;
     song.playCount++;
-    // Update recently played tuple (max 5)
+   
     const filtered = recentlyPlayed.filter((rid) => rid !== id);
     filtered.unshift(id);
     recentlyPlayed = [filtered[0], (_a = filtered[1]) !== null && _a !== void 0 ? _a : id, (_b = filtered[2]) !== null && _b !== void 0 ? _b : id, (_c = filtered[3]) !== null && _c !== void 0 ? _c : id, (_d = filtered[4]) !== null && _d !== void 0 ? _d : id];
@@ -688,7 +688,7 @@ renderSongs();
 renderRecentlyPlayed();
 playSong(1);
 
-// Render playlist info box
+
 function renderPlaylistInfo() {
   const el = document.getElementById("playlistInfo");
   if (!el) return;
